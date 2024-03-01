@@ -4,6 +4,8 @@ import PlanetCard from './components/PlanetCard';
 import SearchBox from './components/SearchBox';
 import Button from './components/Button';
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { FaChevronLeft } from "react-icons/fa";
+import { FaChevronRight } from "react-icons/fa";
 
 function App() {
   const [url,seturl]=useState('https://swapi.dev/api/planets/?format=json')
@@ -14,7 +16,8 @@ function App() {
   const [data,setData]=useState([])
   const [resident,setResident]=useState([])
 
-  const [perPage,setPerPage]=useState()
+  const [perPage,setPerPage]=useState(6)
+  const [page,setPage]=useState(1)
 
 
   const getData=async()=>{
@@ -30,7 +33,11 @@ function App() {
 
   }
 
-  
+  const SelectedPage=(selected)=>{
+    if(selected>=1 && selected<=Math.ceil(data.length / perPage) && selected!==page)
+           setPage(selected)
+  }
+
   
   useEffect(()=>{
    getData()
@@ -51,7 +58,7 @@ function App() {
             <div className='w-full grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10'>
             {
               
-                data.map((planet,i)=>{
+                data.slice(page*perPage-perPage,page*perPage).map((planet,i)=>{
                   return(
                     <div key={i} className="h-full">
                     <PlanetCard data={planet} resident={resident} index={i}/>
@@ -68,6 +75,24 @@ function App() {
           </div>
           )
         }
+
+        <div className='flex flex-row items-center justify-center'>
+                  <span className="px-4 cursor-pointer" onClick={() => SelectedPage(page - 1)}>
+                      <FaChevronLeft />
+                    </span>
+            {
+              [...Array(Math.ceil(data.length/perPage))].map((e,i)=>{
+                return(
+                  <span key={i}className={`py-2 px-4 font-medium cursor-pointer ${page===i+1?'bg-blue-900 rounded-md text-white':''}`} onClick={()=>{SelectedPage(i+1)}}>{i+1}</span>
+                )
+              })
+            }
+
+                  <span className="px-4 cursor-pointer" onClick={() => SelectedPage(page + 1)}>
+                      <FaChevronRight />
+                  </span>
+
+        </div>
     </div>
   );
 }
