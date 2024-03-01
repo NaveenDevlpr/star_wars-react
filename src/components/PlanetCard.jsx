@@ -11,7 +11,7 @@ const PlanetCard = ({data,resident,index}) => {
         setIsOpen(!isOpen);
       };
   return (
-    <div className={`rounded-lg shadow-lg flex flex-col bg-white ring-1 ring-gray-200 w-full px-6`}>
+    <div className={`rounded-lg shadow-lg flex flex-col bg-white ring-1 "bg-white  bg-opacity-20 backdrop-blur-lg hover:bg-opacity-40 hover:scale-105 transition duration-300 transform ring-gray-200 w-full px-6`}>
         <div className='flex flex-row items-center justify-center mt-2'>
             <h2 className='text-[30px] text-blue-900 font-semibold'>
                 {data.name}
@@ -48,16 +48,15 @@ const PlanetCard = ({data,resident,index}) => {
                     (
                             <div className="flex justify-between items-center mt-4 mb-2 cursor-pointer" onClick={()=>{toggleAccordion()}}>
                             <h2 className="text-lg font-semibold">{'Residents Details'}</h2>
-                            <FaChevronDown className={`w-6 h-6 mb-2 ${isOpen ? 'transform rotate-180' : ''}`}/>
+                            <FaChevronDown className={`w-6 h-6 mb-2 ${isOpen ? 'transform rotate-180 duration-1000 transition-all' : 'duration-1000 transition-all'}`}/>
                             </div>
 
                             
                     )
                     
                 }
-                 {
-                    isOpen&& (
-                        <div className='flex flex-col w-full'>
+                 
+                    <div className={`overflow-hidden transition-height transform duration-1000 ${isOpen ? 'h-auto' : 'h-0'}`}>
                             <table className='table-fixed text-left'>
                                 <thead>
                                     <tr>
@@ -80,13 +79,6 @@ const PlanetCard = ({data,resident,index}) => {
                            
                             
                         </div>
-                    )
-                }
-              
-           
-                
-                
-                   
             </div>
        
     </div>
