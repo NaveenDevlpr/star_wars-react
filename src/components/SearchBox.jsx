@@ -19,9 +19,7 @@ const SearchBox = ({data,setData,url,seturl}) => {
             }
         }
       
-    }
-
-  
+    }  
   return (
 <div className='flex flex-row items-center w-full space-x-2'>
             <input 
