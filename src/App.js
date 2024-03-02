@@ -43,24 +43,30 @@ function App() {
    getData()
   },[url])
   return (
-    <div className="p-6 max-w-7xl mx-auto w-full flex flex-col space-y-4">
-       <div className='flex md:flex-row flex-col md:items-center space-y-4 md:space-y-0 justify-between'>
+    <div className="flex flex-col w-full p-6 mx-auto space-y-4 max-w-7xl">
+      <div className='flex flex-row items-center justify-center h-1/2'>
+        <img src='http://imageshack.com/a/img922/3783/oyvsRd.png' className='w-[300px] h-full' alt='logo'></img>
+      </div>
+       <div className='flex flex-col justify-between space-y-4 md:flex-row md:items-center md:space-y-0'>
           
               <SearchBox data={data} setData={setData} url={next?next:prev} seturl={seturl}/>
           
           <div className='flex flex-row items-center space-x-4'>
             <Button name={'Prev'} link={prev} seturl={seturl}/>
+            <button className='px-4 py-3 rounded-md text-black font-semibold bg-[#BA90C6]' onClick={()=>{seturl('https://swapi.dev/api/planets/?format=json')}}>
+              Home
+            </button>
             <Button name={'Next'} link={next} seturl={seturl}/>
           </div>
        </div>
         {
           data.length>0 ? (
-            <div className='w-full grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10'>
+            <div className='grid grid-cols-1 gap-8 lg:grid-cols-3 md:grid-cols-2'>
             {
               
                 data.slice(page*perPage-perPage,page*perPage).map((planet,i)=>{
                   return(
-                    <div key={i} className="h-full">
+                    <div key={i} className="">
                     <PlanetCard data={planet} resident={resident} index={i}/>
                   </div>
                   )
@@ -70,26 +76,26 @@ function App() {
             }
         </div>
           ):(
-          <div className='flex flex-row items-center justify-center text-center w-full h-screen'>
-            <AiOutlineLoading3Quarters className='animate-spin w-8 h-8'/>
+          <div className='flex flex-row items-center justify-center w-full h-screen text-center'>
+            <AiOutlineLoading3Quarters className='w-8 h-8 animate-spin'/>
           </div>
           )
         }
 
         <div className='flex flex-row items-center justify-center'>
                   <span className="px-4 cursor-pointer" onClick={() => SelectedPage(page - 1)}>
-                      <FaChevronLeft />
+                      <FaChevronLeft className='text-white' />
                     </span>
             {
               [...Array(Math.ceil(data.length/perPage))].map((e,i)=>{
                 return(
-                  <span key={i}className={`py-2 px-4 font-medium cursor-pointer ${page===i+1?'bg-blue-900 rounded-md text-white':''}`} onClick={()=>{SelectedPage(i+1)}}>{i+1}</span>
+                  <span key={i}className={`py-2 px-4 font-medium cursor-pointer ${page===i+1?'bg-[#BA90C6] rounded-md text-white':'text-white'}`} onClick={()=>{SelectedPage(i+1)}}>{i+1}</span>
                 )
               })
             }
 
                   <span className="px-4 cursor-pointer" onClick={() => SelectedPage(page + 1)}>
-                      <FaChevronRight />
+                      <FaChevronRight className='text-white' />
                   </span>
 
         </div>

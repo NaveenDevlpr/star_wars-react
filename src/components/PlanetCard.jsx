@@ -11,31 +11,31 @@ const PlanetCard = ({data,resident,index}) => {
         setIsOpen(!isOpen);
       };
   return (
-    <div className={`rounded-lg shadow-lg flex flex-col bg-white ring-1 "bg-white  bg-opacity-20 backdrop-blur-lg hover:bg-opacity-40 hover:scale-105 transition duration-300 transform ring-gray-200 w-full px-6`}>
-        <div className='flex flex-row items-center justify-center mt-2'>
-            <h2 className='text-[30px] text-blue-900 font-semibold'>
+    <div className={`rounded-lg mt-4 shadow-lg flex flex-col ring-1 ring-[#BA90C6] hover:ring-purple-300 hover:ring-4 bg-transparent hover:scale-105 transition duration-300 transform  w-full px-6`}>
+        <div className='flex flex-row items-center justify-center mt-2 mb-2'>
+            <h2 className='text-[30px] text-white font-semibold'>
                 {data.name}
             </h2>
         </div>
             <div className='w-full'>
-                <table className='w-full text-left table-fixed px-6 py-3'>
+                <table className='w-full px-6 py-3 text-left table-fixed'>
                     <tbody>
-                        <tr className='border-t  border-gray-300'>
-                           <th className='text-lg text-gray-400/80 font-medium  py-3'>Climate</th>
-                           <td>:</td>
-                           <td className='text-lg text-blue-900 font-medium py-3'>{data.climate==='n/a' || data.climate==='unknown' ? 'empty':data.climate}</td> 
+                        <tr className='border-t border-gray-300'>
+                           <th className='py-3 text-lg font-medium text-[#BA90C6]'>Climate</th>
+                           <td className='text-xl font-bold text-white'>--</td>
+                           <td className='py-3 text-lg font-medium text-white'>{data.climate==='n/a' || data.climate==='unknown' ? 'empty':data.climate}</td> 
                         </tr>
 
                         <tr>
-                           <th className='text-lg text-gray-400/80 font-medium py-3'>Terrain</th>
-                           <td>:</td>
-                           <td className='text-lg text-blue-900 font-medium py-3 whitespace-pre-wrap'>{data.terrain==='n/a' || data.terrain==='unknown' ? 'empty':data.terrain}</td> 
+                           <th className='py-3 text-lg font-medium text-[#BA90C6]'>Terrain</th>
+                           <td className='text-xl font-bold text-white'>--</td>
+                           <td className='py-3 text-lg font-medium text-white whitespace-pre-wrap'>{data.terrain==='n/a' || data.terrain==='unknown' ? 'empty':data.terrain}</td> 
                         </tr>
 
                         <tr>
-                           <th className='text-lg text-gray-400/80 font-medium  py-3'>Population</th>
-                           <td>:</td>
-                           <td className='text-lg text-blue-900 font-medium py-3'>{data.population==='n/a' || data.population==='unknown' ? 'empty':data.population}</td> 
+                           <th className='py-3 text-lg font-medium text-[#BA90C6]'>Population</th>
+                           <td className='text-xl font-bold text-white'>--</td>
+                           <td className='py-3 text-lg font-medium text-white'>{data.population==='n/a' || data.population==='unknown' ? 'empty':data.population}</td> 
                         </tr>
                     </tbody>
                 </table>
@@ -46,9 +46,9 @@ const PlanetCard = ({data,resident,index}) => {
                 {
                     resident[index].length!==0 &&
                     (
-                            <div className="flex justify-between items-center mt-4 mb-2 cursor-pointer" onClick={()=>{toggleAccordion()}}>
-                            <h2 className="text-lg font-semibold">{'Residents Details'}</h2>
-                            <FaChevronDown className={`w-6 h-6 mb-2 ${isOpen ? 'transform rotate-180 duration-1000 transition-all' : 'duration-1000 transition-all'}`}/>
+                            <div className="flex items-center justify-between mt-4 mb-4 cursor-pointer" onClick={()=>{toggleAccordion()}}>
+                            <h2 className="text-lg font-semibold text-gray-300">{'Residents Details'}</h2>
+                            <FaChevronDown className={`w-6 h-6 mb-2 text-gray-300 ${isOpen ? 'transform rotate-180 duration-700 transition-all' : 'duration-700 transition-all'}`}/>
                             </div>
 
                             
@@ -57,8 +57,8 @@ const PlanetCard = ({data,resident,index}) => {
                 }
                  
                     <div className={`overflow-hidden transition-height transform duration-1000 ${isOpen ? 'h-auto' : 'h-0'}`}>
-                            <table className='table-fixed text-left'>
-                                <thead>
+                            <table className='text-left table-fixed'>
+                                <thead className='text-[#BA90C6]'>
                                     <tr>
                                         <th className='p-2'>Name</th>
                                         <th className='p-2'>Gender</th>

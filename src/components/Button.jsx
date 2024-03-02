@@ -11,7 +11,7 @@ const Button = ({name,link,seturl}) => {
         }
     }
   return (
-    <button className='px-4 py-3 rounded-md text-white bg-blue-900' onClick={()=>{changePage()}}>
+    <button className='px-4 py-3 rounded-md text-black font-semibold bg-[#BA90C6]' onClick={()=>{changePage()}}>
         {name}
     </button>
   )

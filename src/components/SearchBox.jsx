@@ -5,14 +5,20 @@ const SearchBox = ({data,setData,url,seturl}) => {
  
     const searchResident=()=>{
        
-        if(search && search.trim() !== ''){
+        if(search && search.trim() !== '')
+        {
 
             const filteredData=data.filter((e,i)=>e.name.toLowerCase()===search.toLowerCase())
-            setData(filteredData)
+            if(filteredData.length!==0)
+            {
+              setData(filteredData)
+            }
+            else{
+              setData(data)
+              alert('Character not found in this page')
+            }
         }
-        if(search.trim()===''){
-       seturl(url)
-        }
+      
     }
 
   
@@ -26,11 +32,11 @@ const SearchBox = ({data,setData,url,seturl}) => {
                
                 setSearch(e.target.value)
             }}
-            className='w-full px-4 py-3 bg-transparent border-2 outline-none md:w-1/2 rounded-md border-gray-400/50 focus:border-gray-500 focus:outline-none focus:bg-transparent'>
+            className='w-full px-4 py-3 text-white placeholder-gray-400 bg-transparent border rounded-md outline-none border-gray-200/80 focus:border-white md:w-1/2 focus:outline-none focus:bg-transparent'>
             </input>
             <button 
             onClick={()=>{searchResident()}}
-            className='rounded-md px-5 py-3 text-white bg-blue-900'>
+            className='rounded-md px-5 py-3 text-black font-semibold bg-[#BA90C6]'>
               Search
             </button>
 
