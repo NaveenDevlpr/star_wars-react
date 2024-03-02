@@ -22,27 +22,27 @@ const PlanetCard = ({data,resident,index}) => {
                     <tbody>
                         <tr className='border-t border-gray-300'>
                            <th className='py-3 text-lg font-medium text-[#BA90C6]'>Climate</th>
-                           <td className='text-xl font-bold text-white'>--</td>
+                           <td className='text-lg text-white font-ldbold'>-</td>
                            <td className='py-3 text-lg font-medium text-white'>{data.climate==='n/a' || data.climate==='unknown' ? 'empty':data.climate}</td> 
                         </tr>
 
                         <tr>
                            <th className='py-3 text-lg font-medium text-[#BA90C6]'>Terrain</th>
-                           <td className='text-xl font-bold text-white'>--</td>
+                           <td className='text-lg text-white font-ldbold'>-</td>
                            <td className='py-3 text-lg font-medium text-white whitespace-pre-wrap'>{data.terrain==='n/a' || data.terrain==='unknown' ? 'empty':data.terrain}</td> 
                         </tr>
 
                         <tr>
                            <th className='py-3 text-lg font-medium text-[#BA90C6]'>Population</th>
-                           <td className='text-xl font-bold text-white'>--</td>
-                           <td className='py-3 text-lg font-medium text-white'>{data.population==='n/a' || data.population==='unknown' ? 'empty':data.population}</td> 
+                           <td className='text-lg text-white font-ldbold'>-</td>
+                           <td className='py-3 text-lg font-medium text-white '>{data.population==='n/a' || data.population==='unknown' ? 'empty':data.population}</td> 
                         </tr>
                     </tbody>
                 </table>
             </div>
 
 
-            <div className='flex flex-col'>
+            <div className='flex flex-col '>
                 {
                     resident[index].length!==0 &&
                     (
@@ -56,7 +56,7 @@ const PlanetCard = ({data,resident,index}) => {
                     
                 }
                  
-                    <div className={`overflow-hidden transition-height transform duration-1000 ${isOpen ? 'h-auto' : 'h-0'}`}>
+                    <div className={`overflow-hidden transition-max-h transform duration-1000 ${isOpen ? 'h-auto' : 'h-0'}`}>
                             <table className='text-left table-fixed'>
                                 <thead className='text-[#BA90C6]'>
                                     <tr>

@@ -77,12 +77,12 @@ function App() {
         </div>
           ):(
           <div className='flex flex-row items-center justify-center w-full h-screen text-center'>
-            <AiOutlineLoading3Quarters className='w-8 h-8 animate-spin'/>
+            <AiOutlineLoading3Quarters className='w-8 h-8 text-white animate-spin'/>
           </div>
           )
         }
 
-        <div className='flex flex-row items-center justify-center'>
+        <div className='flex flex-row items-center justify-center space-x-2'>
                   <span className="px-4 cursor-pointer" onClick={() => SelectedPage(page - 1)}>
                       <FaChevronLeft className='text-white' />
                     </span>

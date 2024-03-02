@@ -32,7 +32,7 @@ const SearchBox = ({data,setData,url,seturl}) => {
                
                 setSearch(e.target.value)
             }}
-            className='w-full px-4 py-3 text-white placeholder-gray-400 bg-transparent border rounded-md outline-none border-gray-200/80 focus:border-white md:w-1/2 focus:outline-none focus:bg-transparent'>
+            className='w-full px-4 py-3 text-white bg-transparent border-2 rounded-md outline-none placeholder-gray-200/80 border-gray-200/60 focus:border-white md:w-1/2 focus:outline-none focus:bg-transparent'>
             </input>
             <button 
             onClick={()=>{searchResident()}}
